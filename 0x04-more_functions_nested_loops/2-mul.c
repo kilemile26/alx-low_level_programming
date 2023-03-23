@@ -3,8 +3,8 @@
 /**
  * mul - multiplication function
  *
- * @a:
- * @b:
+ * @a: number to multiply
+ * @b: number to multiply by
  *
  * Return: mul result
  */
