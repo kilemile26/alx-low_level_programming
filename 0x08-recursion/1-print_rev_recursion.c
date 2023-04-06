@@ -2,6 +2,7 @@
 
 /**
  * _print_rev_recursion - reverse printing function
+ * @s: pointer used in recursion
  * Return: 0.
  */
 
