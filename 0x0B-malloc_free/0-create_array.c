@@ -20,6 +20,7 @@ char *create_array(unsigned int size, char c)
 	if(arr == NULL)
 	{
 		return NULL;
+		exit(1);
 	}
 	
 	for (i = 0; i < size; i++)
