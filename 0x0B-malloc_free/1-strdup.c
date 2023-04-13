@@ -1,15 +1,15 @@
 #include "main.h"
 
 /**
- * _strdup - 
- * @str: 
- * return: NULL if str=NULL, otherwise returns pointer
+ * _strdup - function used to copy a string
+ * @str: pointer to first string
+ * Return: 0 or NULL if str = NULL, otherwise returns pointer
  */
 
 char *_strdup(char *str)
 {
 	char *new;
-	int i, u=0;
+	int i, u = 0;
 
 	if (str == NULL)
 	{
@@ -20,7 +20,7 @@ char *_strdup(char *str)
 		u++;
 	}
 
-	new = (char*)malloc(sizeof(char)*u);
+	new = (char *)malloc(sizeof(char) * u);
 	if (str == NULL)
 	{
 		return (NULL);
