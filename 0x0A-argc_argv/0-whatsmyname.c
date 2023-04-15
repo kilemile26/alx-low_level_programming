@@ -4,7 +4,7 @@
  * main - printing the argument name only
  * @argc: integer variables
  * @argv: array of pointers to arguments
- * return: 0
+ * Return: always 0.
  */
 
 int main(int argc, char **argv)
