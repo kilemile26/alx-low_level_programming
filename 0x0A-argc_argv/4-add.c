@@ -24,12 +24,12 @@ int main(int argc, char *argv[])
 			if (!isdigit(arg[j]))
 			{
 				printf("Error\n");
-				return 1;
+				return (1);
 			}
 		}
 
 		num = atoi(arg);
-		if (num > 0) 
+		if (num > 0)
 		{
 			sum += num;
 		}
