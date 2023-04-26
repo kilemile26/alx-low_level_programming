@@ -1,8 +1,9 @@
 #include "main.h"
 
-/*
- * main - Entry point for the program that prints minimum number of coins
+/**
+ * main - Entry point for the program
  *
+ * the function prints minimum number of coins required to make the change.
  * @argc: number of args
  * @argv: pointer to args
  * Return: 0
