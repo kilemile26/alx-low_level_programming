@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * *add_node - prints all the elements of a list_t list
+ * *add_node - prints all the elements of list
  * @head: pointer to the new node of the list
  * @str: pointer to the newly allocated string
  * Return: the number of element in the list
@@ -9,8 +9,8 @@
 list_t *add_node(list_t **head, const char *str)
 {
 	unsigned int len = 0;
-
 	list_t *new_node = malloc(sizeof(list_t));
+
 	while (str[len])
 	{
 		len++;
