@@ -7,10 +7,13 @@
  *
  * Return: The address of the new element, or NULL if it failed
  */
+
 listint_t *add_nodeint_end(listint_t **head, const int n)
 {
-	listint_t *end_node = malloc(sizeof(listint_t));
-	listint_t this_node;
+	listint_t *end_node;
+	listint_t *this = *head;
+
+	end_node = malloc(sizeof(listint_t));
 
 	if (end_node == NULL)
 	{
@@ -22,19 +25,14 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 
 	if (*head == NULL)
 	{
-		*head == end_node;
+		*head = end_node;
 	}
-	else
+	while (this_node->next != NULL)
 	{
-		*this_node = *head;
-
-		while (this_node->next != NULL)
-		{
-			end_node = this_node->next
-		}
-
-		this_node->next = this_node
+		this_node = this_node->next;
 	}
+	
+	this_node->next = end_node;
 
-	return (new_node);
+	return (end_node);
 }
