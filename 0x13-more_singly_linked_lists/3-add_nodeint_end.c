@@ -1,9 +1,4 @@
-#include <stdlib.h>
-
-typedef struct listint_s {
-    int n;
-    struct listint_s *next;
-} listint_t;
+#include "lists.h"
 
 /**
  * add_nodeint_end - Add a new node at the beginning of a listint_t list
