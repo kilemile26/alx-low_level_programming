@@ -7,9 +7,6 @@
  * @...: A variable number of strings to be printed.
  */
 
-#include <stdio.h>
-#include <stdarg.h>
-
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	unsigned int i;
