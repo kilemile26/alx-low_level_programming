@@ -5,9 +5,6 @@
  * @format: list of types of arguments passed to the function
  */
 
-#include <stdio.h>
-#include <stdarg.h>
-
 void print_all(const char * const format, ...)
 {
 	va_list args;
