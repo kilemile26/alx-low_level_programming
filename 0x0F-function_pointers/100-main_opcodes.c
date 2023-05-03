@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 {
 	char *main_func;
 	int num_bytes;
+	int i;
 
 	if (argc != 2 || atoi(argv[1]) < 0)
 	{
@@ -22,7 +23,7 @@ int main(int argc, char *argv[])
 	main_func = (char *)main;
 	num_bytes = atoi(argv[1]);
 
-	for (int i = 0; i < num_bytes; i++)
+	for (i = 0; i < num_bytes; i++)
 	{
 		printf("%02hhx%c", main_func[i], i == num_bytes - 1 ? '\n' : ' ');
 	}
