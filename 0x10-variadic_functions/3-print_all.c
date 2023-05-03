@@ -8,54 +8,41 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+#include <stdio.h>
+#include <stdarg.h>
+
 void print_all(const char * const format, ...)
 {
-	va_list args;
-    char *str;
-    int num;
-    float fnum;
-    int i = 0, j = 0;
-
+    va_list args;
     va_start(args, format);
 
-    while (format && format[i])
+    while (*format)
     {
-        j = 0;
-        switch (format[i])
+        switch (*format)
         {
             case 'c':
                 printf("%c", va_arg(args, int));
                 break;
             case 'i':
-                num = va_arg(args, int);
-                printf("%d", num);
+                printf("%d", va_arg(args, int));
                 break;
             case 'f':
-                fnum = va_arg(args, double);
-                printf("%f", fnum);
+                printf("%f", va_arg(args, double));
                 break;
             case 's':
-                str = va_arg(args, char *);
-                if (str == NULL)
                 {
-                    printf("(nil)");
-                }
-                else
-                {
-                    printf("%s", str);
+                    char *str = va_arg(args, char *);
+                    printf("%s", str ? str : "(nil)");
                 }
                 break;
-            default:
-                j = 1;
-                break;
         }
-        if (format[i + 1] && !j)
-        {
-            printf(", ");
-        }
-        i++;
-    }
-    printf("\n");
 
+        format++;
+
+        if (*format && (*format == 'c' || *format == 'i' || *format == 'f' || *format == 's'))
+            printf(", ");
+    }
+
+    printf("\n");
     va_end(args);
 }
