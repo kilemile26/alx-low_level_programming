@@ -9,9 +9,10 @@
 
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	unsigned int i = 0;
+	unsigned int i;
 	int num;
 	va_list args;
+
 	va_start(args, n);
 
 	while (i < n)
@@ -22,8 +23,8 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		if (i < n - 1 && separator != NULL)
 		{
 			printf("%s", separator);
+			i++;
 		}
-		i++;
 	}
 		va_end(args);
 
