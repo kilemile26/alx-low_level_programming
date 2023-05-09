@@ -9,21 +9,35 @@
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd, written_bytes, text_size;
+	int fd, written_bytes;
+	int text_size = 0;
 	int len = strlen(text_content);
 
 	if (!filename)
+	{
 		return (-1);
+	}
 
 	fd = open(filename, O_WRONLY | O_APPEND);
-	written_bytes = write(fd, text_content, len);
-	text_size = written_bytes * sizeof(char);
-
-	if (text_size != len)
-	return (-1);
-
-	if (!fd || !written_bytes)
+	if (fd < 0)
+	{
 		return (-1);
+	}
 
+	written_bytes = write(fd, text_content, len);
+	if (written_bytes < 0)
+	{
+		close(fd);
+		return (-1);
+	}
+
+	text_size = written_bytes * sizeof(char);
+	if (text_size != len)
+	{
+		close(fd);
+		return (-1);
+	}
+
+	close(fd);
 	return (1);
 }
