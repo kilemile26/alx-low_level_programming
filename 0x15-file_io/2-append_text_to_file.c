@@ -20,14 +20,10 @@ int append_text_to_file(const char *filename, char *text_content)
 	text_size = written_bytes * sizeof(char);
 
 	if (text_size != len)
-		close(fd);
 	return (-1);
 
-	if (!fd || !text_size)
-	{
-		close(fd);
+	if (!fd || !written_bytes)
 		return (-1);
-	}
 
 	return (1);
 }
