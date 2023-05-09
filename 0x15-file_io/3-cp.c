@@ -4,7 +4,7 @@
 
 /**
  * main - program that copies the content of a file to another file
- * @rgc: The number of arguments
+ * @argc: The number of arguments
  * @argv: argument strings
  * Return: 0 on success.
  */
@@ -53,9 +53,10 @@ int main(int argc, char *argv[])
 
 	if (close(fd_from) < 0 || close(fd_to) < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", (close(fd_from) == -1) ? fd_from : fd_to);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n",
+				(close(fd_from) == -1) ? fd_from : fd_to);
 		exit(100);
 	}
 
-	return 0;
+	return (0);
 }
