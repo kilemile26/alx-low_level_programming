@@ -8,21 +8,11 @@
 
 int get_endianness(void)
 {
-	/*int i = 1;
-	 * char *p = (char *)&i;
-	 * if (*p == 1)
-	 * {
-	 * return (1);
-	 * }
-	 * else
-	 * {
-	 * return (0);
-	 * }
-	 */
-	int get_endianness(void)
-	{
-		uint32_t i = 1;
-		uint32_t swapped_i = __builtin_bswap32(i);
-		return (swapped_i == 1);
-	}
+	int i = 1;
+	char *p = (char *)&i;
+	
+	if (*p == 1)
+		return (1);
+	else
+		return (0);
 }
