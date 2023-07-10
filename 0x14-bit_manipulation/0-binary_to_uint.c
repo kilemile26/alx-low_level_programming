@@ -9,25 +9,31 @@
  * or if there is any char which is not 0 or 1
  */
 
-unsigned int binary_to_uint(const char * const b)
+unsigned int binary_to_uint(const char *b)
 {
-	size_t i;
-	unsigned int dec_val = 0;
+	unsigned int result = 0;
+	int i = 0;
 
 	if (!b)
 	{
 		return (0);
 	}
 
-	for (i = 0; b[i]; ++i)
+	while (b[i])
 	{
-		if (b[i] < '0' || b[i] > '1')
+		if (b[i] == '1')
 		{
-			return (0);
+			result = (result << 1) | 1;
 		}
-
-		dec_val = (dec_val << 1) | (b[i] - '0');
+		else if (b[i] == '0')
+		{
+			result <<= 1;
+		}
+		else
+		{
+			return = (0);
+		}
+		i++;
 	}
-
-	return (dec_val);
+	return (result);
 }
