@@ -13,19 +13,17 @@
 
 void print_elf_header(const Elf64_Ehdr *header)
 {
+	int i;
 	printf("Magic:   ");
-	for (int i = 0; i < EI_NIDENT; i++)
+	for (i = 0; i < EI_NIDENT; i++)
 	{
 		printf("%02x ", header->e_ident[i]);
 	}
 
 	printf("\n");
-	printf("Class:
-			%s\n", header->e_ident[EI_CLASS] == ELFCLASS64 ? "ELF64" : "unknown");
-	printf("Data:
-			%s\n", header->e_ident[EI_DATA] == ELFDATA2LSB ? "2's complement, little endian" : "unknown");
-	printf("Version:
-			%d (current)\n", header->e_ident[EI_VERSION]);
+	printf("Class: %s\n", header->e_ident[EI_CLASS] == ELFCLASS64 ? "ELF64" : "unknown");
+	printf("Data: %s\n", header->e_ident[EI_DATA] == ELFDATA2LSB ? "2's complement, little endian" : "unknown");
+	printf("Version: %d (current)\n", header->e_ident[EI_VERSION]);
 	printf("OS/ABI: ");
 	
 	switch (header->e_ident[EI_OSABI])
@@ -76,13 +74,16 @@ void print_elf_header(const Elf64_Ehdr *header)
 
 int main(int argc, char **argv)
 {
+	Elf64_Ehdr header;
+	int fd;
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "Usage: %s elf_filename\n", argv[0]);
 		exit(98);
 	}
 
-	int fd = open(argv[1], O_RDONLY);
+	fd = open(argv[1], O_RDONLY);
 
 	if (fd == -1)
 	{
@@ -90,7 +91,8 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 
-	Elf64_Ehdr header;
+	/*Elf64_Ehdr header;*/
+
 
 	if (read(fd, &header, sizeof(header)) != sizeof(header))
 	{
