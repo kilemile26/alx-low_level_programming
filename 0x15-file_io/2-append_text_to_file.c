@@ -31,12 +31,12 @@ int append_text_to_file(const char *filename, char *text_content)
 		return (-1);
 	}
 
-	text_size = written_bytes * sizeof(char);
+	/*text_size = written_bytes * sizeof(char);
 	if (text_size != len)
 	{
 		close(fd);
 		return (-1);
-	}
+	}*/
 
 	close(fd);
 	return (1);
