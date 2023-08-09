@@ -14,6 +14,7 @@
 void print_elf_header(const Elf64_Ehdr *header)
 {
 	int i;
+
 	printf("Magic:   ");
 	for (i = 0; i < EI_NIDENT; i++)
 	{
@@ -25,7 +26,7 @@ void print_elf_header(const Elf64_Ehdr *header)
 	printf("Data: %s\n", header->e_ident[EI_DATA] == ELFDATA2LSB ? "2's complement, little endian" : "unknown");
 	printf("Version: %d (current)\n", header->e_ident[EI_VERSION]);
 	printf("OS/ABI: ");
-	
+
 	switch (header->e_ident[EI_OSABI])
 	{
 		case ELFOSABI_SYSV:
@@ -40,7 +41,7 @@ void print_elf_header(const Elf64_Ehdr *header)
 
 	printf("ABI Version: %d\n", header->e_ident[EI_ABIVERSION]);
 	printf("Type:");
-	
+
 	switch (header->e_type)
 	{
 		case ET_NONE:
@@ -111,5 +112,5 @@ int main(int argc, char **argv)
 	print_elf_header(&header);
 
 	close(fd);
-	return 0;
+	return (0);
 }
